@@ -16,12 +16,12 @@ const Footer = () => {
             src="https://upload.wikimedia.org/wikipedia/commons/4/41/Visa_Logo.png"
           />
         </div>
-        <div className="card-name">
+        {/* <div className="card-name">
           <img
             alt="paypal"
             src="https://pbs.twimg.com/media/EfTZlEnWAAMn1lX.png"
           />
-        </div>
+        </div> */}
         <div className="card-name">
           <img
             alt="express"
