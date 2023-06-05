@@ -7,7 +7,7 @@ import { getOrderDetails, payOrder } from "../Redux/Actions/OrderActions";
 import Loading from "./../components/LoadingError/Loading";
 import Message from "./../components/LoadingError/Error";
 import moment from "moment";
-import axios from "axios";
+import axios from "../utils/axios";
 import { ORDER_PAY_RESET } from "../Redux/Constants/OrderConstants";
 
 const OrderScreen = ({ match }) => {

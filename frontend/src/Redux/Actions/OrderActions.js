@@ -12,7 +12,7 @@ import {
   ORDER_PAY_REQUEST,
   ORDER_PAY_SUCCESS,
 } from "../Constants/OrderConstants";
-import axios from "axios";
+import axios from "../../utils/axios";
 import { CART_CLEAR_ITEMS } from "../Constants/CartConstants";
 import { logout } from "./userActions";
 
