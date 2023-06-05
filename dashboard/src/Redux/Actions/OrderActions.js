@@ -10,7 +10,7 @@ import {
   ORDER_LIST_SUCCESS,
 } from "../Constants/OrderConstants";
 import { logout } from "./userActions";
-import axios from "axios";
+import axios from "../../utils/axios";
 
 export const listOrders = () => async (dispatch, getState) => {
   try {
