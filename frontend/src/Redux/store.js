@@ -49,7 +49,13 @@ const userInfoFromLocalStorage = localStorage.getItem("userInfo")
 // chat
 const chatInfoFromLocalStorage = localStorage.getItem("userInfo")
   ? JSON.parse(localStorage.getItem("chatInfo"))
-  : null;
+  : [
+      {
+        sender: "admin",
+        message: "Hey, I am Diva, how can I help you...",
+        timestamp: new Date(),
+      },
+    ];
 
 // shippingAddress
 const shippingAddressFromLocalStorage = localStorage.getItem("shippingAddress")
