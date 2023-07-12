@@ -19,6 +19,7 @@ import {
   orderListMyReducer,
   orderPayReducer,
 } from "./Reducers/OrderReducres";
+import { chatReducer } from "./Reducers/ChatReducer";
 
 const reducer = combineReducers({
   productList: productListReducer,
@@ -33,6 +34,7 @@ const reducer = combineReducers({
   orderDetails: orderDetailsReducer,
   orderPay: orderPayReducer,
   orderListMy: orderListMyReducer,
+  chats: chatReducer,
 });
 
 const cartItemsFromLocalStorage = localStorage.getItem("cartItems")
@@ -42,6 +44,11 @@ const cartItemsFromLocalStorage = localStorage.getItem("cartItems")
 // login
 const userInfoFromLocalStorage = localStorage.getItem("userInfo")
   ? JSON.parse(localStorage.getItem("userInfo"))
+  : null;
+
+// chat
+const chatInfoFromLocalStorage = localStorage.getItem("userInfo")
+  ? JSON.parse(localStorage.getItem("chatInfo"))
   : null;
 
 // shippingAddress
@@ -55,6 +62,7 @@ const initialState = {
     shippingAddress: shippingAddressFromLocalStorage,
   },
   userLogin: { userInfo: userInfoFromLocalStorage },
+  chats: { chatInfo: chatInfoFromLocalStorage },
 };
 
 const middleware = [thunk];

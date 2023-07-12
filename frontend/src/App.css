@@ -652,3 +652,95 @@ textarea:focus {
   background-color: black;
   border: 1px solid black;
 }
+
+/* chat app */
+.chat-app {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 300px;
+  max-height: 500px;
+  background-color: #fff;
+  border-radius: 4px;
+  overflow: hidden;
+  transition: height 0.3s ease-in-out;
+  z-index: 100;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.chat-toggle {
+  padding: 10px;
+  text-align: center;
+  background-color: #4caf50;
+  color: #fff;
+  cursor: pointer;
+}
+
+.chat-window {
+  height: 0;
+  overflow-y: hidden;
+  transition: height 0.3s ease-in-out;
+}
+
+.chat-app.open .chat-window {
+  height: 400px;
+}
+
+.messages {
+  padding: 10px;
+  height: 345px;
+  overflow-y: auto;
+}
+
+.message {
+  margin-bottom: 10px;
+  padding: 6px 10px;
+  border-radius: 4px;
+  max-width: 80%;
+}
+
+.message.user {
+  background-color: #e6e6e6;
+  align-self: flex-end;
+  margin-left: auto;
+}
+
+.message.admin {
+  background-color: #f2f2f2;
+  align-self: flex-start;
+}
+
+.timestamp {
+  font-size: 12px;
+  color: #999;
+  margin-top: 4px;
+}
+
+.input-area {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border-top: 1px solid #ccc;
+}
+
+.input-area input {
+  flex-grow: 1;
+  height: 30px;
+  margin-right: 10px;
+  padding: 4px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.input-area button {
+  padding: 4px 10px;
+  border: none;
+  border-radius: 4px;
+  background-color: #4caf50;
+  color: #fff;
+  cursor: pointer;
+}
+
+.input-area button:hover {
+  background-color: #45a049;
+}
