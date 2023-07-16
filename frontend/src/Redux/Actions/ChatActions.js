@@ -1,9 +1,8 @@
 import axios from "axios";
-import { SEND_MESSAGE } from "../Constants/ChatConstants";
+import { RETRIEVE_MESSAGES, SEND_MESSAGE } from "../Constants/ChatConstants";
 
 // SEND MESSAGE
 export const sendMessage = (message) => async (dispatch) => {
-  //   console.log({ message });
   const existingData = localStorage.getItem("chatInfo");
   const parsedData = existingData
     ? JSON.parse(existingData)
@@ -45,12 +44,27 @@ export const sendMessage = (message) => async (dispatch) => {
         message: data.response,
         timestamp: new Date(),
       };
-      updatedData = [...updatedData, newData]; // Combine existing data with new data
+      const d_ata = JSON.parse(localStorage.getItem("chatInfo"));
+      const updated_data = [...d_ata, newData]; // Combine existing data with new data
 
-      localStorage.setItem("chatInfo", JSON.stringify(updatedData)); // Store the updated data back in localStorage
-      dispatch({ type: SEND_MESSAGE, payload: updatedData });
+      localStorage.setItem("chatInfo", JSON.stringify(updated_data)); // Store the updated data back in localStorage
+      dispatch({ type: SEND_MESSAGE, payload: updated_data });
     }
   } catch (error) {
     console.log({ error });
   }
+};
+
+export const retrieveMessages = () => (dispatch) => {
+  const existingData = localStorage.getItem("chatInfo");
+  const parsedData = existingData
+    ? JSON.parse(existingData)
+    : [
+        {
+          sender: "admin",
+          message: "Hey, I am Diva, how can I help you...",
+          timestamp: new Date(),
+        },
+      ];
+  dispatch({ type: RETRIEVE_MESSAGES, payload: parsedData });
 };

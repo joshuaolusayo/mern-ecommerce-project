@@ -1,4 +1,8 @@
-import { RECEIVE_MESSAGE, SEND_MESSAGE } from "../Constants/ChatConstants";
+import {
+  RECEIVE_MESSAGE,
+  RETRIEVE_MESSAGES,
+  SEND_MESSAGE,
+} from "../Constants/ChatConstants";
 
 // CHAT
 export const chatReducer = (state = {}, action) => {
@@ -6,6 +10,8 @@ export const chatReducer = (state = {}, action) => {
     case SEND_MESSAGE:
       return { loading: false, success: true, chatInfo: action.payload };
     case RECEIVE_MESSAGE:
+      return { loading: false, success: true, chatInfo: action.payload };
+    case RETRIEVE_MESSAGES:
       return { loading: false, success: true, chatInfo: action.payload };
     default:
       return state;

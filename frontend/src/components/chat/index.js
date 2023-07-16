@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { sendMessage } from "../../Redux/Actions/ChatActions";
+import { retrieveMessages, sendMessage } from "../../Redux/Actions/ChatActions";
 import { formatTime } from "../../utils/formatTime";
 
 const ChatApp = () => {
@@ -23,12 +23,16 @@ const ChatApp = () => {
     setIsChatOpen(!isChatOpen);
   };
 
+  useEffect(() => {
+    dispatch(retrieveMessages());
+  }, [dispatch]);
+
   const allChats = useSelector((state) => state.chats);
 
   return (
     <div className={`chat-app ${isChatOpen ? "open" : ""}`}>
       <div className="chat-toggle" onClick={handleChatToggle}>
-        Chat with Diva
+        {isChatOpen ? "Chat with Diva" : <i className="fa fa-comment"></i>}
       </div>
       <div className="chat-window">
         <div className="messages">
